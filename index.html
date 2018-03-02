@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CII Prototype</title>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta1/katex.min.css" integrity="sha384-VEnyslhHLHiYPca9KFkBB3CMeslnM9CzwjxsEbZTeA21JBm7tdLwKoZmCt3cZTYD" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta1/katex.min.js" integrity="sha384-O4hpKqcplNCe+jLuBVEXC10Rn1QEqAmX98lKAIFBEDxZI0a+6Z2w2n8AEtQbR4CD" crossorigin="anonymous"></script>
+  <style>
+  * { box-sizing: border-box }
+  body { margin: 0 }
+  #main > section { display: none }
+  #main > section.show { display: block }
+  button.hide { visibility: hidden }
+  nav > button.ui-button { width: 100%; margin-top: 1ex }
+  header, #main, nav, footer { position: fixed; padding: 1em }
+  header { width: 100%; height: 3em; background: #0099ff;
+    display: flex; justify-content: space-between }
+  nav { top: 3em; bottom: 0; width: 10em; background: #eee }
+  #main { top: 3em; bottom: 3em; left: 10em; right: 0; overflow: auto }
+  footer { bottom: 0; left: 10em; right: 0; height: 3em; background: #0099ff;
+    display: flex; justify-content: space-between; padding: 1ex 2ex }
+  </style>
+</head>
+<body>
+<header>
+  <div>Status</div>
+  <div>Course Title</div>
+  <div>Student Name</div>
+</header>
+<nav>
+  <button>Roadmap</button>
+  <button>Go to Last</button>
+  <button>Go to Test</button>
+  <button>Chat</button>
+  <button>Progress</button>
+  <button>Search</button>
+</nav>
+<main id='main'></main>
+<footer>
+  <button id='prev' class='hide'>Prev</button>
+  <button id='submit' class='hide'>Submit</button>
+  <button id='next'>Next</button>
+</footer>
+<script src='app.js'></script>
+</body>
+</html>
