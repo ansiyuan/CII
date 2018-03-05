@@ -2,47 +2,50 @@
 <html>
 <head>
   <title>CII Prototype</title>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta1/katex.min.css" integrity="sha384-VEnyslhHLHiYPca9KFkBB3CMeslnM9CzwjxsEbZTeA21JBm7tdLwKoZmCt3cZTYD" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-beta1/katex.min.js" integrity="sha384-O4hpKqcplNCe+jLuBVEXC10Rn1QEqAmX98lKAIFBEDxZI0a+6Z2w2n8AEtQbR4CD" crossorigin="anonymous"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <style>
-  * { box-sizing: border-box }
-  body { margin: 0 }
-  #main > section { display: none }
-  #main > section.show { display: block }
-  button.hide { visibility: hidden }
-  nav > button.ui-button { width: 100%; margin-top: 1ex }
-  header, #main, nav, footer { position: fixed; padding: 1em }
-  header { width: 100%; height: 3em; background: #0099ff;
-    display: flex; justify-content: space-between }
-  nav { top: 3em; bottom: 0; width: 10em; background: #eee }
-  #main { top: 3em; bottom: 3em; left: 10em; right: 0; overflow: auto }
-  footer { bottom: 0; left: 10em; right: 0; height: 3em; background: #0099ff;
-    display: flex; justify-content: space-between; padding: 1ex 2ex }
+  #main { overflow: auto }
+  #main > article { display: none }
+  #main > article.show { display: block }
+  body.test .explain, body.review .hint { display: none }
+  body.review .correct { background: lightgreen }
+  body.test #nav>button, body.review #nav>button, #done { visibility: hidden }
+  body.review #nav>button#btnChat, body.test #done, body.review #done { visibility: visible }
   </style>
 </head>
-<body>
-<header>
-  <div>Status</div>
-  <div>Course Title</div>
-  <div>Student Name</div>
+<body class="fixed-top fixed-bottom flex-column no-gutters row text-white">
+<header class="col-auto navbar bg-primary p-2">
+  <span id="status" class="navbar-text">Status</span>
+  <span class="navbar-text">Course Title</span>
+  <span class="navbar-text">Student</span>
 </header>
-<nav>
-  <button>Roadmap</button>
-  <button>Go to Last</button>
-  <button>Go to Test</button>
-  <button>Chat</button>
-  <button>Progress</button>
-  <button>Search</button>
-</nav>
-<main id='main'></main>
-<footer>
-  <button id='prev' class='hide'>Prev</button>
-  <button id='submit' class='hide'>Submit</button>
-  <button id='next'>Next</button>
-</footer>
+<div class="col no-gutters row">
+  <div id="nav" class="col-auto bg-secondary p-2">
+    <button class="btn btn-light btn-block">Roadmap</button>
+    <button class="btn btn-light btn-block">Go to Last</button>
+    <button class="btn btn-light btn-block">Go to Test</button>
+    <button id="btnChat" class="btn btn-light btn-block">Chat</button>
+    <button class="btn btn-light btn-block">Progress</button>
+    <button class="btn btn-light btn-block">Search</button>
+  </div>
+  <div class="col flex-column no-gutters row">
+    <main id="main" class="bg-light col p-3 text-dark"></main>
+    <footer class="col-auto navbar bg-primary p-2">
+      <button type="button" id="prev" class="btn btn-light invisible">Prev</button>
+      <button type="button" id="done" class="btn btn-danger">Submit</button>
+      <button type="button" id="next" class="btn btn-light">Next</button>
+    </footer>
+  </div>
+</div>
 <script src='app.js'></script>
 </body>
 </html>
